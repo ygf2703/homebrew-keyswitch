@@ -4,8 +4,12 @@ cask "keyswitch" do
 
   url "https://download.keyswitch.app/KeySwitch-mac-#{version}.dmg"
   name "KeySwitch"
-  desc "Automatic keyboard layout correction for macOS"
+  desc "Automatic keyboard layout correction"
   homepage "https://keyswitch.app/"
+
+  livecheck do
+    skip "No versioned release feed is available"
+  end
 
   depends_on macos: ">= :ventura"
 
