@@ -1,6 +1,6 @@
 cask "keyswitch-lite" do
-  version "1.0.2"
-  sha256 "4b8a8cde063e2efbcdee97a005fbbd9a191701fd69a38c7257f37acfd9d23d17"
+  version "1.0.3"
+  sha256 "3008d42f23a793c2f87d9306a0aad923763d51d4103737d7cb2f73a0e5a028db"
 
   url "https://download.keyswitch.app/KeySwitch-Lite-mac-#{version}.dmg"
   name "KeySwitch Lite"
@@ -14,6 +14,13 @@ cask "keyswitch-lite" do
   depends_on macos: ">= :ventura"
 
   app "KeySwitch Lite.app"
+
+  postflight do
+    system_command "/usr/bin/open", args: ["-a", "#{appdir}/KeySwitch Lite.app"]
+  end
+
+  uninstall quit:       "com.keyswitch.app.lite",
+            on_upgrade: :quit
 
   zap trash: [
     "~/Library/Logs/KeySwitch",

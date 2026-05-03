@@ -1,6 +1,6 @@
 cask "keyswitch" do
-  version "1.0.2"
-  sha256 "d95186a086985ba7789440338d49dcc3eb6b1513c9168284b729e43892504c59"
+  version "1.0.3"
+  sha256 "c3d16ab24634bbf4f602aeb28d3a98f84b8f63815200d83d4f5dc48487bbae37"
 
   url "https://download.keyswitch.app/KeySwitch-mac-#{version}.dmg"
   name "KeySwitch"
@@ -14,6 +14,13 @@ cask "keyswitch" do
   depends_on macos: ">= :ventura"
 
   app "KeySwitch.app"
+
+  postflight do
+    system_command "/usr/bin/open", args: ["-a", "#{appdir}/KeySwitch.app"]
+  end
+
+  uninstall quit:       "com.keyswitch.app",
+            on_upgrade: :quit
 
   zap trash: [
     "~/Library/Logs/KeySwitch",
