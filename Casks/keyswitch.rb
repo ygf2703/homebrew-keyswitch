@@ -1,6 +1,6 @@
 cask "keyswitch" do
-  version "1.0.8"
-  sha256 "9ebd4a7e8415371e311a638bca28c87a57c34761b26c7254047614c6e77fbf48"
+  version "1.0.9"
+  sha256 "3250bb78fb73000467a0bc115829b64f0b631fedc3a4944759cfb19f5b03a51d"
 
   url "https://download.keyswitch.app/KeySwitch-mac-#{version}.dmg"
   name "KeySwitch"
