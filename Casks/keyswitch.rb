@@ -15,8 +15,8 @@ cask "keyswitch" do
 
   app "KeySwitch.app"
 
-  postflight do
-    system_command "/usr/bin/open", args: ["-a", "#{appdir}/KeySwitch.app"]
+  postflight_steps do
+    run "/usr/bin/open", args: ["-a", "{{appdir}}/KeySwitch.app"]
   end
 
   uninstall quit: "com.keyswitch.app"
