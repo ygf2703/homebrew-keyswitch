@@ -15,14 +15,15 @@ cask "keyswitch" do
 
   app "KeySwitch.app"
 
-  postflight_steps do
-    run "/usr/bin/open", args: ["-a", "{{appdir}}/KeySwitch.app"]
-  end
-
   uninstall quit: "com.keyswitch.app"
 
   zap trash: [
     "~/Library/Logs/KeySwitch",
     "~/Library/Preferences/com.keyswitch.app.plist",
   ]
+
+  caveats <<~EOS
+    Open KeySwitch from your Applications folder after installation.
+    Allow KeySwitch in System Settings > Privacy & Security > Accessibility.
+  EOS
 end
